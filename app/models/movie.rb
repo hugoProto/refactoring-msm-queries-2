@@ -13,6 +13,10 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
+  has_many(:characters)
+  
+  belongs_to(:director, { :class_name => "Director", :foreign_key => "director_id" })
+
   def director
     key = self.director_id
 
